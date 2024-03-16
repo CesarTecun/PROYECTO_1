@@ -21,7 +21,7 @@ public class PROYECTO_1 {
             System.out.println("\nMenú:");
             System.out.println("1. Imprimir árbol de expresión");
             System.out.println("2. Imprimir árbol de expresión gráfico");
-            System.out.println("3. Imprimir construcción del árbol");
+            System.out.println("3. Recorrido PreOrden");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
@@ -36,7 +36,7 @@ public class PROYECTO_1 {
                     arbol.imprimirArbolGrafico();
                     break;
                 case 3:
-                    System.out.println("\nConstrucción del árbol:");
+                    System.out.println("\nRecorrido PreOrden:");
                     arbol.imprimirConstruccionArbol();
                     break;
                 case 0:

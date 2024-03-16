@@ -113,13 +113,13 @@ public class ArbolExpresion {
         if (nodo != null) {
             System.out.print(nodo.dato);
             if (nodo.izquierdo != null || nodo.derecho != null) {
-                System.out.print(" (");
+                
                 imprimirConstruccionArbol(nodo.izquierdo);
                 if (nodo.derecho != null) {
-                    System.out.print(", ");
+                   
                 }
                 imprimirConstruccionArbol(nodo.derecho);
-                System.out.print(")");
+                
             }
         }
     }
