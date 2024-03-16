@@ -14,6 +14,7 @@ public class PilaArbolExp {
     public PilaArbolExp() {
         //lo inicializamos como nulo para indicar que la pila
         //esta vacion al principio
+        //
         tope = null;
 
     }
