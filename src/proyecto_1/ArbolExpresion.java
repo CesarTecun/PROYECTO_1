@@ -105,24 +105,60 @@ public class ArbolExpresion {
         }
     }
 
-    public void imprimirConstruccionArbol() {
-        imprimirConstruccionArbol(raiz);
+    public void recorridoPreOrden() {
+        recorridoPreOrden(raiz);
+
     }
 
-    private void imprimirConstruccionArbol(Nodo nodo) {
+    public void recorridoInOrden() {
+        recorridoInOrden(raiz);
+
+    }
+    
+    public void recorridoPosOrden() {
+        recorridoPosOrden(raiz);
+
+    }
+
+    //metodo para realizar recorrido PreOrden RAIZ,IZQUIERDA, DERECHA
+    private void recorridoPreOrden(Nodo nodo) {
         if (nodo != null) {
             System.out.print(nodo.dato);
             if (nodo.izquierdo != null || nodo.derecho != null) {
-                
-                imprimirConstruccionArbol(nodo.izquierdo);
+
+                recorridoPreOrden(nodo.izquierdo);
                 if (nodo.derecho != null) {
-                   
+
                 }
-                imprimirConstruccionArbol(nodo.derecho);
-                
+                recorridoPreOrden(nodo.derecho);
+
             }
         }
     }
+
+    private void recorridoInOrden(Nodo nodo) {
+        if (nodo != null) {
+            if (nodo.izquierdo != null) {
+                recorridoInOrden(nodo.izquierdo);
+            }
+            System.out.print(nodo.dato);
+            if (nodo.derecho != null) {
+                recorridoInOrden(nodo.derecho);
+            }
+        }
+    }
+    
+    private void recorridoPosOrden(Nodo nodo) {
+    if (nodo != null) {
+        if (nodo.izquierdo != null) {
+            recorridoPosOrden(nodo.izquierdo);
+        }
+        if (nodo.derecho != null) {
+            recorridoPosOrden(nodo.derecho);
+        }
+        System.out.print(nodo.dato);
+    }
+}
 
     public void imprimirArbolGrafico() {
         imprimirArbolGrafico(raiz, 0);

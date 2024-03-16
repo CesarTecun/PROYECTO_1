@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class PROYECTO_1 {
 
     public static void main(String[] args) {
- Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         ArbolExpresion arbol = new ArbolExpresion();
 
         System.out.print("Ingrese la expresión matemática: ");
@@ -22,6 +22,8 @@ public class PROYECTO_1 {
             System.out.println("1. Imprimir árbol de expresión");
             System.out.println("2. Imprimir árbol de expresión gráfico");
             System.out.println("3. Recorrido PreOrden");
+            System.out.println("4. Recorrido InOrden");
+            System.out.println("5. Recorrido PosOrden");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
@@ -37,7 +39,16 @@ public class PROYECTO_1 {
                     break;
                 case 3:
                     System.out.println("\nRecorrido PreOrden:");
-                    arbol.imprimirConstruccionArbol();
+                    arbol.recorridoPreOrden();
+                    break;
+                case 4:
+                    System.out.println("\nRecorrido InOrden:");
+                    arbol.recorridoInOrden();
+
+                    break;
+                case 5:
+                    System.out.println("\nRecorrido PosOrden:");
+                    arbol.recorridoPosOrden();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...");
