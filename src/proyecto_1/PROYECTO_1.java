@@ -13,6 +13,13 @@ public class PROYECTO_1 {
 
         System.out.print("Ingrese la expresión matemática: ");
         String expresion = scanner.nextLine();
+
+        if (!esExpresionValida(expresion)) {
+            System.out.println("Error: La expresión ingresada no es válida.");
+            return;
+        }
+        
+        System.out.println("La expresión ingresada es válida puedes continuara.");
         arbol.construirArbol(expresion);
 
         int opcion;
@@ -86,5 +93,35 @@ public class PROYECTO_1 {
         } else {
             System.out.println("La variable '" + variable + "' no existe en la expresión.");
         }
+    }
+    public static boolean esExpresionValida(String expresion) {
+        // Verificar que la expresión no sea nula o esté vacía
+        if (expresion == null || expresion.isEmpty()) {
+            return false;
+        }
+        
+        int parentesis = 0;
+        
+        // Recorrer cada caracter de la expresión
+        for (char c : expresion.toCharArray()) {
+            // Verificar si el caracter no es una letra ni un operador válido
+            if (!Character.isLetter(c) && c != '+' && c != '-' && c != '/' && c != '(' && c != ')') {
+                return false;
+            }
+            
+            // Verificar balanceo de paréntesis
+            if (c == '(') {
+                parentesis++;
+            } else if (c == ')') {
+                parentesis--;
+                if (parentesis < 0) {
+                    return false; // Si hay un paréntesis de cierre sin su correspondiente de apertura
+                }
+            }
+        }
+        // Verificar que el balanceo de paréntesis sea correcto
+        // Si la expresión ha pasado todas las verificaciones, es válida
+
+        return parentesis == 0;
     }
 }
