@@ -14,7 +14,10 @@ public class PROYECTO_1 {
         System.out.print("Ingrese la expresión matemática: ");
         String expresion = scanner.nextLine();
 
-  
+        if (!esExpresionValida(expresion)) {
+            System.out.println("Error: La expresión ingresada no es válida.");
+            return;
+        }
         
         System.out.println("La expresión ingresada es válida puedes continuara.");
         arbol.construirArbol(expresion);
@@ -102,7 +105,7 @@ public class PROYECTO_1 {
         // Recorrer cada caracter de la expresión
         for (char c : expresion.toCharArray()) {
             // Verificar si el caracter no es una letra ni un operador válido
-            if (!Character.isLetter(c) && c != '+' && c != '-' && c != '/' && c != '(' && c != ')') {
+            if (!Character.isLetter(c) && c != '+' && c != '-' && c != '*' && c != '/' && c != '^' && c != '(' && c != ')') {
                 return false;
             }
             
